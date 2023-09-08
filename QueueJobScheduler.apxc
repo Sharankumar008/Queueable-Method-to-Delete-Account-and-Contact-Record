@@ -1,0 +1,15 @@
+//QueueJobScheduler Class
+
+public class QueueJobScheduler {
+    public void scheduleJobs() {
+        
+        //DeleteContactsJob deleteContactsJob = new DeleteContactsJob();
+        
+        System.enqueueJob(new DeleteContactsJob());
+        
+        //DeleteAccountsJob deleteAccountsJob = new DeleteAccountsJob();
+        
+        System.enqueueJob(new DeleteAccountsJob());
+        
+    }
+}
