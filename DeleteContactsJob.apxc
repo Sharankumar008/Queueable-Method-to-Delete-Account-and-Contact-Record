@@ -1,0 +1,17 @@
+//Contact deletion
+
+public class DeleteContactsJob implements Queueable {
+    public void execute(QueueableContext context) {
+        
+        //Last one year
+        //List<Account> contactToDelete = [SELECT Id FROM Account__c WHERE CreatedDate = LAST_n_DAYS:365];
+        
+        //Last one month
+        List<Contact> contactToDelete = [SELECT Id FROM Contact WHERE CreatedDate = LAST_n_DAYS:30];
+        
+        System.debug(contactToDelete);
+        delete contactToDelete;
+        
+        
+    }
+}
