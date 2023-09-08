@@ -1,0 +1,14 @@
+//Account deletion
+
+public class DeleteAccountsJob implements Queueable {
+    public void execute(QueueableContext context) {     
+        
+        //Last one year
+        //List<Account> accountsToDelete = [SELECT Id FROM Account WHERE CreatedDate = LAST_n_DAYS:365];
+        
+        //Last one month
+        List<Account> accountsToDelete = [SELECT Id FROM Account WHERE CreatedDate = LAST_n_DAYS:30];
+        System.debug(accountsToDelete);
+        delete accountsToDelete;
+    }
+}
